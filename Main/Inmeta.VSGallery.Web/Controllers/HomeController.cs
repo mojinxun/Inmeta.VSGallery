@@ -33,7 +33,7 @@ namespace Inmeta.VSGallery.Web.Controllers
                 {
                     ReleasesViewModel m = model;
                     var extensions = ctx.ReleasesWithStuff.Where(r => r.Extension.Name.Contains(m.SearchText) || r.Extension.Description.Contains(m.SearchText));
-                    model = new ReleasesViewModel(extensions.ToList());
+                    model.Releases = new ReleasesViewModel(extensions.ToList()).Releases;
                 }
             }
             return View(Views.Index, model);
