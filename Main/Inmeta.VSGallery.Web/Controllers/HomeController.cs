@@ -21,6 +21,9 @@ namespace Inmeta.VSGallery.Web.Controllers
         [HttpPost]
         public virtual ActionResult Search(ReleasesViewModel model)
         {
+            if (model == null)
+                return Index();
+
             if (ModelState.IsValid)
             {
                 if (String.IsNullOrEmpty(model.SearchText))
