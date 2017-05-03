@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <!--<Icon Id="icon.ico" SourceFile="pslogo.ico"/>
+	<Property Id="ARPPRODUCTICON" Value="icon.ico" />-->
+
+  <MajorUpgrade Schedule="afterInstallFinalize"
+                DowngradeErrorMessage="!(loc.DowngradeErrorMessage)"/>
+
+</Include>

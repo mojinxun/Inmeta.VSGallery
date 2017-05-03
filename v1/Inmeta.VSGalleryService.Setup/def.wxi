@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+  <?define Version= "1.0.0.0"?>
+  <?define DefaultRegistryKey="SOFTWARE\!(loc.CompanyName)\!(loc.ProductName)\Install"?>
+  <?define UpgradeCode="21db6472-a5b1-45fd-9c91-04f10b7ae7c3"?>
+  
+</Include>

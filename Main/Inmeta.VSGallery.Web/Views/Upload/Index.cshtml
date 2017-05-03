@@ -1,0 +1,42 @@
+﻿@model Inmeta.VSGallery.Web.Models.UploadExtensionModel
+
+@{
+    ViewBag.Title = "Upload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title></title>
+</head>
+
+<body>
+    <div>
+        <h1>Inmeta Visual Studio Extension Gallery</h1>
+    </div>
+
+    <div class="">
+        <b>Upload a new or update an existing Visual Studio Extension (.vsix)</b>
+    </div>
+    <hr />
+    <div>
+        @using (Html.BeginForm(MVC.Upload.ActionNames.Post, MVC.Upload.Name, FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <fieldset>
+                <p>
+                    @Html.TextBoxFor(m => m.File, new { type = "file", @class = "UploadFileName" })
+                    @Html.ValidationMessageFor(m => m.File)
+                </p>
+
+            </fieldset>
+            <p></p>
+            <input type="submit" value="Upload" class="btn btn-primary" />
+            <input value="Back" class="btn btn-default" type="button" onclick="location.href='@Url.Action(MVC.Home.ActionNames.Index, MVC.Home.Name)'" />
+        }
+
+    </div>
+</body>
+</html>

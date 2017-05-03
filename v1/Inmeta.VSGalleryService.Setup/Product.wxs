@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+     
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+	xmlns:iis="http://schemas.microsoft.com/wix/IIsExtension"		 
+	xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  
+  <?include def.wxi?>
+  
+	<Product Id="*" 
+					 Name="!(loc.ProductName)" 
+					 Language="!(loc.LANG)" 
+					 Version="$(var.Version)" 
+					 Manufacturer="!(loc.CompanyName)" 
+					 UpgradeCode="$(var.UpgradeCode)">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" 
+						 Languages="!(loc.LANG)"
+             Manufacturer="!(loc.CompanyName)" Comments="!(loc.Comments)" 
+             Description="!(loc.Description)" Keywords="!(loc.Keywords)"/>
+
+		<?include Settings.wxi ?> <!-- Apply our settings -->
+		<?include Conditions.wxi ?> <!-- Perform conditional checks -->
+		<?include WebSites.wxi ?> <!-- Get our website properties defined/initialised -->    
+    
+    <MediaTemplate EmbedCab="yes" />
+
+
+    <iis:WebSite Id='SelectedWebSite' Description='[WEBSITE_NAME]' Directory='INSTALLDIR'> 
+     <!-- This element has to be here or WiX does not compile. It's ignored in this case. -->
+     <iis:WebAddress Id="AllUnassigned" Port="80"/>
+    </iis:WebSite>
+    
+    <!-- Define App Pool - identity if not set defaults to: ApplicationPoolIdentity -->
+    <iis:WebAppPool Id="SelectedAppPool" Name="[APP_POOL_NAME]"/>
+
+    <Feature Id="ProductFeature" Title="!(loc.ProductName)" Level="1">
+			<ComponentRef Id="WebVirtualDirComponent"/>
+			<ComponentRef Id="EnableASPNet4Extension"/>
+			<ComponentGroupRef Id="ProductComponents" />
+			<ComponentGroupRef Id="Wix.Generated_Project" />
+			<ComponentRef Id="PersistWebSiteValues" />
+		</Feature>
+
+		<Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR"/>
+		<UIRef Id="WixUI_WebUI" />
+	</Product>
+
+	
+	<Fragment>
+		<Directory Id='TARGETDIR' Name='SourceDir'>
+			<Directory Id="IISMain" Name='inetpub'>
+				<Directory Id="WWWMain" Name='wwwroot' ComponentGuidGenerationSeed='d6353e68-6372-4fe6-9046-cd7f837f4e3b'>
+					<Directory Id='INSTALLDIR' Name="!(loc.ProductName)">
+						<!-- The component to define the Virtual Directory.-->
+						<Component Id="WebVirtualDirComponent" Guid="337fb545-3aa7-433b-9c1b-5f9177e35cdb">              
+                <iis:WebVirtualDir Id="VDir" Alias="[WEB_APP_NAME]" Directory="INSTALLDIR" WebSite="SelectedWebSite">
+                    <iis:WebApplication Id="MyWebAppApplication" WebAppPool="SelectedAppPool" Name="[WEB_APP_NAME]" />
+								    <iis:WebDirProperties Id="MyWebSite_Properties" AnonymousAccess="yes"	WindowsAuthentication="no" DefaultDocuments="Default.aspx" />
+							  </iis:WebVirtualDir>                
+							<CreateFolder/>
+							<!-- Need to have to ensure created -->
+						</Component>
+
+						<Component Id="EnableASPNet4Extension" Permanent="yes" Guid="3c683cb4-52be-4da2-a4dc-11457ee05ea0">
+							<CreateFolder/>
+							<!-- Need to have to ensure created -->
+							<iis:WebServiceExtension Id="ASPNet4Extension" Group="ASP.NET v4.0.30319" Allow="yes"
+																			 File="[ASPNETISAPIDLL]" Description="ASP.NET v4.0.30319"
+																			 UIDeletable="no"/>
+						</Component>
+						<Component Id="PersistWebSiteValues" Guid="038715ed-b43f-47bd-9d55-dbd7feb5ee08">
+							<RegistryKey Root="HKLM" Key="$(var.DefaultRegistryKey)">
+								<RegistryValue Name="WebSiteDescription" Type="string" Value="[WEBSITE_DESCRIPTION]"/>
+								<RegistryValue Name="WebSiteName" Type="string" Value="[WEBSITE_NAME]"/>
+								<RegistryValue Name="WebSitePath" Type="string" Value="[WEBSITE_PATH]"/>
+								<RegistryValue Name="WebSiteVD" Type="string" Value="[INSTALLDIR]"/>
+                <RegistryValue Name="WebAppName" Type="string" Value="[WEB_APP_NAME]"/>
+                <RegistryValue Name="AppPoolName" Type="string" Value="[APP_POOL_NAME]"/>
+							</RegistryKey>
+						</Component>
+					</Directory>
+				</Directory>
+			</Directory>
+		</Directory>
+	</Fragment>
+
+	<Fragment>	
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLDIR">
+			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
+			<!-- <Component Id="ProductComponent"> -->
+			<!-- TODO: Insert files, registry keys, and other resources here. -->
+			<!-- </Component> -->
+		</ComponentGroup>
+	</Fragment>
+</Wix>

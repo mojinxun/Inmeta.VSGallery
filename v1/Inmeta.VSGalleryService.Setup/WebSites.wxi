@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Include>
+	<!-- Get the ASP.NET DLL path (used for registering script maps below) -->
+	<PropertyRef Id="NETFRAMEWORK40FULLINSTALLROOTDIR"/>
+	<SetProperty Id="ASPNETISAPIDLL" Sequence="execute" Before="ConfigureIIs"
+               Value="[NETFRAMEWORK40FULLINSTALLROOTDIR]aspnet_isapi.dll" />
+	<SetProperty Id="ASPNETREGIIS" Sequence="execute" Before="ConfigureIIs"
+               Value="[NETFRAMEWORK40FULLINSTALLROOTDIR]aspnet_regiis.exe" />  
+  
+</Include>

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="INSTALLDIR">
+            <Component Id="cmpED7EF73DF2EE6C3410E969D23C921182" Guid="*">
+                <File Id="fil80B73CE63B5E8747E4216E3776342C9B" KeyPath="yes" Source="$(var.WebAppProjectDir)\Global.asax" />
+            </Component>
+            <Component Id="cmpCBCA38E8FD6F5284C5020C1EB12DFBC5" Guid="*">
+                <File Id="fil74935A221C3E206F193ADD217451D7F1" KeyPath="yes" Source="$(var.WebAppProjectDir)\packages.config" />
+            </Component>
+            <Component Id="cmpBBEA411EA9EAD9509FF4D3DF3D005CAF" Guid="*">
+                <File Id="fil3F19783C3EC6BAFCC97DF9D8C90C256A" KeyPath="yes" Source="$(var.WebAppProjectDir)\Web.config" />
+            </Component>
+            <Directory Id="dirA5528701EE26FFBF346CCE20EE8ACE99" Name="bin">
+                <Component Id="cmpF07DB2F22B861956EE51FE7CCD9ACE03" Guid="*">
+                    <File Id="filE084CE51990193B532C48465880F608F" KeyPath="yes" Source="$(var.WebAppProjectDir)\bin\Inmeta.VSGalleryService.dll" />
+                </Component>
+                <Component Id="cmp0DAAD4245DD185215C2BBE07956DB070" Guid="*">
+                    <File Id="fil4B2A734F3F5601B867BD98E3F0009815" KeyPath="yes" Source="$(var.WebAppProjectDir)\bin\Inmeta.VSGalleryService.pdb" />
+                </Component>
+                <Component Id="cmp362EA850FD9E679211DFDA4AAA1AD4FC" Guid="*">
+                    <File Id="fil74336D592441043CB0EAAA00120D688D" KeyPath="yes" Source="$(var.WebAppProjectDir)\bin\Inmeta.VSIX.dll" />
+                </Component>
+                <Component Id="cmp598E7A4A6F65EFB4590B11BD7F86A9B2" Guid="*">
+                    <File Id="fil2C2695BB4F58D5B4B591A9862B169BCA" KeyPath="yes" Source="$(var.WebAppProjectDir)\bin\Inmeta.VSIX.pdb" />
+                </Component>
+                <Component Id="cmp20D48B7FD0F784EDD0D4AF7FFE4454B4" Guid="*">
+                    <File Id="fil2163FF814EA3BB0870CD1DD6AB64EEA0" KeyPath="yes" Source="$(var.WebAppProjectDir)\bin\Newtonsoft.Json.dll" />
+                </Component>
+                <Component Id="cmp3B308AC9D04BB0B097B7F218F23BFEF9" Guid="*">
+                    <File Id="fil481933E5F50972CB0AAC4FE15CA1BE36" KeyPath="yes" Source="$(var.WebAppProjectDir)\bin\System.Net.Http.dll" />
+                </Component>
+                <Component Id="cmp7474FC23F73812C6D4FCE1E15A18E40B" Guid="*">
+                    <File Id="fil7A315609528C58283E0C4638DED54056" KeyPath="yes" Source="$(var.WebAppProjectDir)\bin\System.Net.Http.Formatting.dll" />
+                </Component>
+                <Component Id="cmp3A41CCF8F24263A508379EF18D0AC08F" Guid="*">
+                    <File Id="fil06260A213F3F3FDAC58617004BE39AF1" KeyPath="yes" Source="$(var.WebAppProjectDir)\bin\System.Web.Http.dll" />
+                </Component>
+                <Component Id="cmp37E6A6FD60B61705915550F34E38E1E6" Guid="*">
+                    <File Id="filFE180C7FA94706CB743DF57262125762" KeyPath="yes" Source="$(var.WebAppProjectDir)\bin\System.Web.Http.WebHost.dll" />
+                </Component>
+                <Component Id="cmp7385FAB4183F39916035CA4A6C422936" Guid="*">
+                    <File Id="fil4018EFDCAB8269CBBCD6949791788550" KeyPath="yes" Source="$(var.WebAppProjectDir)\bin\System.Web.Mvc.dll" />
+                </Component>
+            </Directory>
+            <Directory Id="dirC16896483A3FBC1C3AD06516C2B352F9" Name="Properties">
+                <Component Id="cmp8B98E9A28FECCA5CFB567A33774B8BC9" Guid="*">
+                    <File Id="fil7D0AC0AD03DD362A3EA321C8D0E38D1A" KeyPath="yes" Source="$(var.WebAppProjectDir)\Properties\Settings.settings" />
+                </Component>
+            </Directory>
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="Wix.Generated_Project">
+            <ComponentRef Id="cmpED7EF73DF2EE6C3410E969D23C921182" />
+            <ComponentRef Id="cmpCBCA38E8FD6F5284C5020C1EB12DFBC5" />
+            <ComponentRef Id="cmpBBEA411EA9EAD9509FF4D3DF3D005CAF" />
+            <ComponentRef Id="cmpF07DB2F22B861956EE51FE7CCD9ACE03" />
+            <ComponentRef Id="cmp0DAAD4245DD185215C2BBE07956DB070" />
+            <ComponentRef Id="cmp362EA850FD9E679211DFDA4AAA1AD4FC" />
+            <ComponentRef Id="cmp598E7A4A6F65EFB4590B11BD7F86A9B2" />
+            <ComponentRef Id="cmp20D48B7FD0F784EDD0D4AF7FFE4454B4" />
+            <ComponentRef Id="cmp3B308AC9D04BB0B097B7F218F23BFEF9" />
+            <ComponentRef Id="cmp7474FC23F73812C6D4FCE1E15A18E40B" />
+            <ComponentRef Id="cmp3A41CCF8F24263A508379EF18D0AC08F" />
+            <ComponentRef Id="cmp37E6A6FD60B61705915550F34E38E1E6" />
+            <ComponentRef Id="cmp7385FAB4183F39916035CA4A6C422936" />
+            <ComponentRef Id="cmp8B98E9A28FECCA5CFB567A33774B8BC9" />
+        </ComponentGroup>
+    </Fragment>
+</Wix>

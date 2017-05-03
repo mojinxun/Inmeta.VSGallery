@@ -1,0 +1,102 @@
+﻿body {
+    padding-top: 0px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 480px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+.thumbnail {
+    width: 48px;
+    height: 48px;
+}
+
+.previewimage {
+    max-height: 512px;
+    max-width: 512px;
+}
+
+.itemTitle {
+    font-size: large;
+}
+
+.itemImage {
+    padding: 10px;
+}
+
+.itemBody {
+     padding: 20px;
+    max-width: 700px;  
+}
+
+.itemSummaryItem {
+    padding-bottom: 5px;
+}
+
+.SearchBox {
+    width: 500px;   
+}
+
+.UploadFileName {
+    width: 500px;   
+}
+
+.SearchIcon { 
+    background-image: url('search-icon.png');
+    background-position:  0px 0px;
+    background-size: 28px;
+    background-repeat: no-repeat;
+    height: 28px;
+    width: 28px;
+    border: 0px;
+}
+
+.SearchFrame {
+    background-color: #efefef;
+    width: 1000px;
+}
+
+.dl-horizontal dt {
+    text-align:left;
+    margin-bottom:5px;
+}
+
+dt {
+    padding-bottom: 10px;
+    vertical-align: middle;
+}

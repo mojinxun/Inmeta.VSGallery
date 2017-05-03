@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Inmeta.VSGalleryService.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="FeedTitle" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Our Cool Extensions</Value>
+    </Setting>
+    <Setting Name="BaseURI" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://localhost/Gallery/extension/</Value>
+    </Setting>
+    <Setting Name="VSIXAbsolutePath" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">c:\Inmeta.VSGallery.Drop\</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
