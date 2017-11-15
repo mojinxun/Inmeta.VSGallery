@@ -16,8 +16,9 @@ namespace Inmeta.VSGallery.Web.Controllers
             Content.Headers.ContentType = new MediaTypeHeaderValue("application/vsix");
             Content.Headers.ContentDisposition = new ContentDispositionHeaderValue("attachment")
             {
-                FileName = extension.Name
+                FileName = extension.Name + ".vsix",
+
             };
-        }        
+        }
     }
 }
